@@ -1,0 +1,32 @@
+
+
+Module400022Name=Αριθμοδοτικές σειρές
+Module400022Desc=Module για τη δημιουργία σειριακών αριθμών
+NumberseriesSetup=Διαμόρφωση των αριθμοδεικτών σειρών
+Settings=Ρυθμίσεις
+Numberseries=Αριθμοδοτικές σειρές
+
+TypeDoc=Είδος παραστατικού
+DefaultSerie=Προεπιλεγμένη σειρά
+AddNumberseries=Προσθήκη νέας σειράς
+ListOfNumberSeries=Λίστα σειριακών αριθμών
+
+NumberseriesUpdated=Η σειρά ενημερώθηκε
+DeleteOK=Η σειρά αφαιρέθηκε
+NumberseriesCreated=Η σειρά δημιουργήθηκε
+DeleteNumberseries=Διαγραφή σειράς
+ConfirmDeleteNumberseries=Διαγραφή αυτής της σειράς;
+
+GoToNumberseriesConf=<a href="%s" target="_blank">Διαμόρφωση των αριθμοδεικτών σειρών</a>
+
+NumberseriesDoc1=Τιμολόγιο Πελατών
+NumberseriesDoc2=Τιμολόγιο Προμηθευτών
+NumberseriesDoc3=Παραγγελία Πελατών
+NumberseriesDoc4=Παραγγελία Προμηθευτών
+NumberseriesDoc5=Προσφορά
+
+#About
+AboutInfo=Αυτό το module έχει αναπτυχθεί και διανέμεται από 2byte.es Soluciones Informáticas <a href="http://www.2byte.es"> www.2byte.es </a> (Dolibarr Preferred Partner)
+MoreModules=Άλλα modules που αναπτύχθηκαν από 2byte.es είναι διαθέσιμα στο επίσημο κατάστημά
+MoreModulesLink=<a target="_blank" href="https://shop.2byte.es/">Κάντε κλικ για να πάτε στο κατάστημα</a>
+ModulesHelp=Για διαθέσιμους οδηγούς και βίντεο των εξωτερικών μονάδων μας<a target="_blank" href="https://liveagent.2byte.es/853598-M%C3%B3dulos-Oficiales-Externos-Dolibarr">εδώ</a>

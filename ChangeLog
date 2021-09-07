@@ -1,0 +1,15 @@
+--------------------------------------------------------------
+English NumberSeries ChangeLog
+--------------------------------------------------------------
+***** ChangeLog for 4.0 compared to 3.8.1 *****
+Fix: Compatibility Dolibarr 4.0
+Fix: Compatibility PHP 7
+
+***** ChangeLog for 3.8.1 compared to 3.8 *****
+Fix: Compatibility with multicompany
+
+***** ChangeLog for 3.8 compared to 3.7 *****
+New: Add more objects
+
+***** ChangeLog for 3.7. *****
+New: Module develop

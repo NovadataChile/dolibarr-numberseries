@@ -1,0 +1,32 @@
+
+
+Module400022Name=Série de numérotation
+Module400022Desc=Module pour générer des numéros de série 
+NumberseriesSetup=Configuration de série numérotation
+Settings=Configuration
+Numberseries=Série de numérotation
+
+TypeDoc=Type de document
+DefaultSerie=Série prédéterminée
+AddNumberseries=Ajouter nouvelle série
+ListOfNumberSeries=Liste des numéros de série
+
+NumberseriesUpdated=Mise à jour série
+DeleteOK=Série retiré
+NumberseriesCreated=Série créée
+DeleteNumberseries=Retirer série
+ConfirmDeleteNumberseries=Supprimer cette série?
+
+GoToNumberseriesConf=<a href="%s" target="_blank">Configuration de série numérotation</a>
+
+NumberseriesDoc1=Facture client
+NumberseriesDoc2=Facture fournisseur
+NumberseriesDoc3=Commande client
+NumberseriesDoc4=Commande fournisseur
+NumberseriesDoc5=Proposition
+
+#About
+AboutInfo=Ce module a été développé et distribué par 2byte.es Soluciones Informáticas <a href="http://www.2byte.es"> www.2byte.es </a> (Dolibarr Preferred Partner)
+MoreModules=Autres modules développés par 2byte.es sont disponibles sur leur boutique officielle
+MoreModulesLink=<a target="_blank" href="https://shop.2byte.es/">Cliquez pour aller à la boutique</a>
+ModulesHelp=Vous avez manuels disponibles et vidéos de nos modules <a target="_blank" externe href="https://liveagent.2byte.es/853598-M%C3%B3dulos-Oficiales-Externos-Dolibarr">ici</ a>
