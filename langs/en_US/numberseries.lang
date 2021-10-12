@@ -24,6 +24,7 @@ NumberseriesDoc2=Supplier Invoice
 NumberseriesDoc3=Customer Order
 NumberseriesDoc4=Supplier Order
 NumberseriesDoc5=Proposal
+NumberseriesDoc6=Project
 
 #About
 AboutInfo=This module has been developed and distributed by 2byte.es Soluciones Informáticas <a href="http://www.2byte.es"> www.2byte.es </a> (Dolibarr Preferred Partner)

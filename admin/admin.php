@@ -36,6 +36,7 @@ dol_include_once("/numberseries/core/modules/supplier_invoice/mod_facture_fourni
 dol_include_once("/numberseries/core/modules/commande/mod_commande_numberseries.php");
 dol_include_once("/numberseries/core/modules/supplier_order/mod_commande_fournisseur_numberseries.php");
 dol_include_once("/numberseries/core/modules/propale/mod_propale_numberseries.php");
+dol_include_once("/numberseries/core/modules/project/mod_project_numberseries.php");
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
 // Translations
 $langs->load("numberseries@numberseries");
@@ -254,14 +255,14 @@ if($action == "add"){
 	print '</td>';
 	print '</tr>';
 		
-	/*print '<tr>';
+	print '<tr>';
 	print '<td>';
 	print $langs->trans("DefaultSerie");
 	print '</td>';
 	print '<td>';
 	print $form->selectyesno('defaultserie',GETPOST("defaultserie"),1);
 	print '</td>';
-	print '</tr>';*/
+	print '</tr>';
 		
 	print '</table>';
     	
@@ -521,6 +522,9 @@ else if($action != "add"){
 			}
 			if($objp->typedoc == 5){
 				$modnumber = new mod_propale_numberseries($db);
+			}
+			if($objp->typedoc == 6){
+				$modnumber = new mod_project_numberseries($db);
 			}
 			print '<td class="nobordernopadding nowrap">';
 			print $modnumber->getExample($objp->rowid, $objp->electronica);

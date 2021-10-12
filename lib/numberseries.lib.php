@@ -74,7 +74,7 @@ function select_typedoc($htmlname,$selected='',$useempty=0,$moreattrib='')
 	$langs->load("bills");
 	
 	$i = 1;
-	$num = 5;
+	$num = 6;
 	print '<select id="select'.$htmlname.'" class="flat selectdictionary" name="'.$htmlname.'"'.($moreattrib?' '.$moreattrib:'').'>';
 	if ($useempty == 1 || ($useempty == 2 && $num > 1))
 	{

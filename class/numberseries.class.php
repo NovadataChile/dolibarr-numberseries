@@ -502,6 +502,25 @@ class Numberseries extends CommonObject
 		}
 
 	}
+
+	public function getTypeDoc($nametype){
+		switch($nametype){
+			case "facture":
+				return 1;
+			case "facture_fourn":
+				return 2;
+			case "commande":
+				return 3;
+			case "commande_fournisseur":
+				return 4;
+			case "propal":
+				return 5;
+			case "proyect": //debe ser project pero la vaina se registró como proyect
+				return 6;
+			default:
+				return 0;
+		}
+	}
 	
 /**
 	 * Get Default serie of typedoc

@@ -24,6 +24,7 @@ NumberseriesDoc2=Facture fournisseur
 NumberseriesDoc3=Commande client
 NumberseriesDoc4=Commande fournisseur
 NumberseriesDoc5=Proposition
+NumberseriesDoc6=Project
 
 #About
 AboutInfo=Ce module a été développé et distribué par 2byte.es Soluciones Informáticas <a href="http://www.2byte.es"> www.2byte.es </a> (Dolibarr Preferred Partner)

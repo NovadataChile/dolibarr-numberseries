@@ -71,7 +71,7 @@ class mod_commande_fournisseur_numberseries extends ModeleNumRefSuppliersOrders
     	$mysoc->typent_code='TTTTTTTTTT';
         $object = null;
     	$object->array_options['options_serie'] = (empty($serie)?"":$serie);
-    	$numExample = $this->getNextValue($mysoc,'');
+    	$numExample = $this->getNextValue($mysoc,$object);
 		$mysoc->code_client=$old_code_client;
 		$mysoc->typent_code=$old_code_type;
 

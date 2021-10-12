@@ -37,6 +37,7 @@ class mod_commande_numberseries extends ModeleNumRefCommandes
 	public $version='dolibarr';		// 'development', 'experimental', 'dolibarr'
 	public $error = '';
 	public $nom = 'Numberseries';
+    public $module = 'commande';
 
 
     /**
@@ -81,6 +82,17 @@ class mod_commande_numberseries extends ModeleNumRefCommandes
 			$numExample = $langs->trans('NotConfigured');
 		}
 		return $numExample;
+    }
+
+    public function getDefaultSerie(){
+
+        global $db;
+        dol_include_once("/numberseries/class/numberseries.class.php");
+
+        $serie = new Numberseries($db);
+        $type = $serie->getTypeDoc($this->module);
+        return $serie->getDefault($type);
+
     }
 
 	/**

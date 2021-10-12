@@ -1,9 +1,6 @@
 <?php
-/* Copyright (C) 2003-2007 Rodolphe Quiedeville        <rodolphe@quiedeville.org>
- * Copyright (C) 2004-2010 Laurent Destailleur         <eldy@users.sourceforge.net>
- * Copyright (C) 2005-2007 Regis Houssin               <regis.houssin@capnetworks.com>
- * Copyright (C) 2008      Raphael Bertrand (Resultic) <raphael.bertrand@resultic.fr>
- * Copyright (C) 2014-2015  Ferran Marcet	<fmarcet@2byte.es>
+/* Copyright (C) 2014      Juanjo Menent		<jmenent@2byte.es>
+ * Copyright (C) 2015      Ferran Marcet		<fmarcet@2byte.es>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,24 +18,23 @@
  */
 
 /**
- * \file       htdocs/core/modules/propale/mod_propale_saphir.php
- * \ingroup    propale
- * \brief      File that contains the numbering module rules Saphir
+ *	\file       /numberseries/core/modules/facture/mod_facture_numberseries.php
+ *	\ingroup    facture
+ *	\brief      File containing class for numbering module Numberseries
  */
-
-require_once DOL_DOCUMENT_ROOT .'/core/modules/propale/modules_propale.php';
+require_once DOL_DOCUMENT_ROOT .'/core/modules/project/modules_project.php';
 
 
 /**
- * Class of file that contains the numbering module rules Saphir
+ *	\class      mod_facture_mercure
+ *	\brief      Classe du modele de numerotation de reference de facture Mercure
  */
-class mod_propale_numberseries extends ModeleNumRefPropales
+class mod_project_numberseries extends ModeleNumRefProjects
 {
 	public $version='dolibarr';		// 'development', 'experimental', 'dolibarr'
     public $error = '';
     public $nom = 'Numberseries';
-    public $module = 'propal';
-
+    public $module = 'project';
 
     /**
      *  Return description of module
@@ -63,18 +59,17 @@ class mod_propale_numberseries extends ModeleNumRefPropales
      *
      *  @return     string      Example
      */
-    public function getExample($serie = null)
+    public function getExample($rowid = null)
     {
      	global $conf,$langs,$mysoc;
-        //obtener el proposal máximo que tenga este ID de ref_serialnumber
 
     	$old_code_client=$mysoc->code_client;
     	$old_code_type=$mysoc->typent_code;
     	$mysoc->code_client='CCCCCCCCCC';
     	$mysoc->typent_code='TTTTTTTTTT';
+     	$numExample = $this->getNextValue($mysoc,'', $rowid);
         $object = null;
      	$object->array_options['options_serie'] = (empty($serie)?"":$serie);
-        $numExample = $this->getNextValue($mysoc,$object);
 		$mysoc->code_client=$old_code_client;
 		$mysoc->typent_code=$old_code_type;
 
@@ -85,25 +80,14 @@ class mod_propale_numberseries extends ModeleNumRefPropales
 		return $numExample;
     }
 
-     public function getDefaultSerie(){
-
-        global $db;
-        dol_include_once("/numberseries/class/numberseries.class.php");
-
-        $serie = new Numberseries($db);
-        $type = $serie->getTypeDoc($this->module);
-        return $serie->getDefault($type);
-
-    }
-
 	/**
 	 *  Return next value
 	 *
 	 *  @param	Societe		$objsoc     Object third party
-	 * 	@param	Propal		$propal		Object commercial proposal
+	 * 	@param	Propal		$project		Object commercial proposal
 	 *  @return string      			Value if OK, 0 if KO
 	 */
-    public function getNextValue($objsoc,$propal)
+    public function getNextValue($objsoc,$project,$serie_id = null)
 	{
 		global $db,$conf,$langs;
 
@@ -113,13 +97,14 @@ class mod_propale_numberseries extends ModeleNumRefPropales
 		// Get Mask value
         $mask = '';
         $serie = new Numberseries($db);
-        $serie_id = $propal->array_options['options_serie'];
+        $serie_id = ((!empty($serie_id)) ? $serie_id : $project->array_options['options_serie']);
         if(empty($serie_id)){
-        	$serie_id = $serie->getDefault(5);
+        	$serie_id = $serie->getDefault(6);
         }
-
+        
         $serie->fetch($serie_id);
         $serie->fetch_lines();
+        
         $mask=$serie->lines[0]->mask_1;
 
 		if (! $mask)
@@ -128,12 +113,13 @@ class mod_propale_numberseries extends ModeleNumRefPropales
 			return 0;
 		}
 
-		$date = $propal->date;
+		$date=$project->date;
 		$customercode=$objsoc->code_client;
-		$numFinal=get_next_value($db,$mask,'propal','ref','',$objsoc,$date);
+		$numFinal=get_next_value($db,$mask,'projet','ref','',$objsoc,$date);
         if($numFinal === 'ErrorBadMask') $numFinal = $langs->trans($numFinal);
 
 		return  $numFinal;
 	}
 
 }
+
