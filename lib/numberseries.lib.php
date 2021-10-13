@@ -107,7 +107,6 @@ function select_typedoc($htmlname,$selected='',$useempty=0,$moreattrib='')
  */
 
 function numberseriesShowOnHead($module, $object, &$extrafields ){
-	echo ";;;;;;".$module;
 	global $langs, $conf, $db;
 
 	$langs->load("numberseries@numberseries");
