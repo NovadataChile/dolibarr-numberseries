@@ -497,7 +497,7 @@ class modNumberseries extends DolibarrModules
 		$param = array();
 		$quer = 'numberseries:ref:rowid:: typedoc = 6 AND entity = '.$conf->entity;
 		$param['options'][$quer] = '';
-		$extra->addExtraField("serie", "Número de serie", "sellist", 1, "", "proyect",0,1,"",$param);
+		$extra->addExtraField("serie", "Número de serie", "sellist", 1, "", "projet",0,1,"",$param);
 
 		$result = $this->loadTables();
 

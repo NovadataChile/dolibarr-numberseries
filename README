@@ -1,3 +1,18 @@
 Terms of Use, Maintenance and Support:
-
 https://shop.2byte.es/content/6-condiciones-de-uso-mantenimiento-y-asistencia-modulos
+
+
+Para que la posición del selector de número de series aparezca antes que el REF de cada módulo se debe agregar el siguiente código, justo antes del formulario.
+
+En módulo proyectos, /projet/card.php line 525
+
+
+```php
+//si está activado el numberseries debe sobre escribir el REF y colocar el selector del número de series.
+if(isset($conf->global->MAIN_MODULE_NUMBERSERIES) and $conf->global->MAIN_MODULE_NUMBERSERIES == 1){
+	require_once DOL_DOCUMENT_ROOT."/custom/numberseries/lib/numberseries.lib.php";
+	numberseriesShowOnHead('project', $object, $extrafields);
+}else{
+	//codigo por defecto formulario REF
+}
+```

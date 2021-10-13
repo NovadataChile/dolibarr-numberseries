@@ -98,3 +98,46 @@ function select_typedoc($htmlname,$selected='',$useempty=0,$moreattrib='')
 	print "</select>";
 	
 }
+
+/**
+ *	Print select serialnumber on top of form.
+ *  @param  string	$module 	modulo desde el cual se llama a la funcion
+ *  @param	string	$extrafields	extrafields del módulo
+ * 	@return	void
+ */
+
+function numberseriesShowOnHead($module, $object, &$extrafields ){
+	echo ";;;;;;".$module;
+	global $langs, $conf, $db;
+
+	$langs->load("numberseries@numberseries");
+
+	switch ($module){
+		case "project":
+		case "projet":
+			$extrafield_name = 'projet';
+		break;
+		default:
+			$extrafield_name = $module;
+		break;
+	}
+
+	$allextrafields = $extrafields->attributes[$dbmodule]['list'];
+	$extrafields->attributes[$dbmodule]['list'] = array('serie'=>-1);
+	if($conf->global->{ strtoupper($module)."_ADDON" } == 'mod_'.$module.'_numberseries'){
+
+		require_once DOL_DOCUMENT_ROOT."/custom/numberseries/core/modules/".$module."/mod_".$module."_numberseries.php";
+		$class_serie = "mod_".$module."_numberseries";
+		$serie = new $class_serie();
+
+		//echo "<pre>";print_r($object);//exit;
+		$object->array_options['options_serie'] = (empty(GETPOST('options_serie'))) ? $serie->getDefaultSerie() : GETPOST('options_serie');
+		print $object->showOptionals($extrafields, 'create', $object->array_options['options_serie']);
+		print '<tr><td class="titlefieldcreate fieldrequired">'.$langs->trans('Ref').'</td><td id="ref_numberseries">'.$serie->getNextValue($soc,$object).'</td>
+		<input type="hidden" name="ref" value="'.$serie->getNextValue($soc,$object).'">
+		</tr>';
+	}
+	$extrafields->attributes[$dbmodule]['list'] = $allextrafields;
+	$extrafields->attributes[$dbmodule]['list']['serie'] = 0;
+
+}
