@@ -116,13 +116,16 @@ function numberseriesShowOnHead($module, $object, &$extrafields ){
 		case "projet":
 			$extrafield_name = 'projet';
 		break;
+		case "propale":
+			$extrafield_name = 'propal';
+		break;
 		default:
 			$extrafield_name = $module;
 		break;
 	}
 
-	$allextrafields = $extrafields->attributes[$dbmodule]['list'];
-	$extrafields->attributes[$dbmodule]['list'] = array('serie'=>-1);
+	$allextrafields = $extrafields->attributes[$extrafield_name]['list'];
+	$extrafields->attributes[$extrafield_name]['list'] = array('serie'=>-1);
 	if($conf->global->{ strtoupper($module)."_ADDON" } == 'mod_'.$module.'_numberseries'){
 
 		require_once DOL_DOCUMENT_ROOT."/custom/numberseries/core/modules/".$module."/mod_".$module."_numberseries.php";
@@ -136,7 +139,7 @@ function numberseriesShowOnHead($module, $object, &$extrafields ){
 		<input type="hidden" name="ref" value="'.$serie->getNextValue($soc,$object).'">
 		</tr>';
 	}
-	$extrafields->attributes[$dbmodule]['list'] = $allextrafields;
-	$extrafields->attributes[$dbmodule]['list']['serie'] = 0;
+	$extrafields->attributes[$extrafield_name]['list'] = $allextrafields;
+	$extrafields->attributes[$extrafield_name]['list']['serie'] = 0;
 
 }
