@@ -1,14 +1,14 @@
 
-## ORIGINAL MODULE AND LICENSE
+### ORIGINAL MODULE AND LICENSE
 
 Terms of Use, Maintenance and Support:
 https://shop.2byte.es/content/6-condiciones-de-uso-mantenimiento-y-asistencia-modulos
 
 
 
-## INSTALLING
+### INSTALLING
 
-### Advanced setup
+#### Advanced setup
 
 Para que la posición del selector de número de series aparezca antes que el REF de cada módulo se debe agregar el siguiente código, justo antes del REF en el formulario.
 
