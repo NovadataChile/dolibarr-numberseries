@@ -8,7 +8,7 @@ https://shop.2byte.es/content/6-condiciones-de-uso-mantenimiento-y-asistencia-mo
 
 ### INSTALLING
 
-#### Advanced setup
+#### Serial number on top of form
 
 Para que la posición del selector de número de series aparezca antes que el REF de cada módulo se debe agregar el siguiente código, justo antes del REF en el formulario.
 
@@ -33,7 +33,12 @@ if(isset($conf->global->MAIN_MODULE_NUMBERSERIES) and $conf->global->MAIN_MODULE
 }
 ```
 
+
+#### Automatic REF by serialnumber (without PROV)
+
 En el caso de pedidos, se puede agregar una validación para agregar el número de serie de manera automática al validar el pedido, de esta forma no generar REF con valores (PROV...)
+
+En módulo commande, /commande/card.php line 267
 
 ```php
 /*
