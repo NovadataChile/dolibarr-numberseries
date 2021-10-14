@@ -8,9 +8,19 @@ https://shop.2byte.es/content/6-condiciones-de-uso-mantenimiento-y-asistencia-mo
 
 ### INSTALLING
 
+#### Install module
+
+Puedes realizar la instalación descargando estas fuentes o bien con git clone, los archivos descargados deben quedar en /htdocs/custom/[numberseries]
+Una vez incorporados los archivos debes activar el módulo desde el backoffice dolibarr.
+
+#### Global variables
+
+SET_AUTOMATIC_REF_BY_NUMBERSERIES: Permite la asignación automática del número de serie al pedido previo a su validación. Evita generar registros (PROV)
+
+
 #### Serial number on top of form
 
-Para que la posición del selector de número de series aparezca antes que el REF de cada módulo se debe agregar el siguiente código, justo antes del REF en el formulario.
+*Una vez definidos los números de series para cada uno de tu módulos* puedes aplicar esta modificación para que la posición del selector de número de series aparezca antes que el REF de cada módulo se debe agregar el siguiente código, justo antes del REF en el formulario.
 
 En módulo proyectos, /projet/card.php line 525
 En módulo propale, /comm/propal/card.php line 1523
