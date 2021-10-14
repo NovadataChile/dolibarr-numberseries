@@ -1,10 +1,10 @@
-# MODULO SERIALNUMBERS PARA DOLIBARR ERP & CRM
 
-
-## LICENSE
+## ORIGINAL MODULE AND LICENSE
 
 Terms of Use, Maintenance and Support:
 https://shop.2byte.es/content/6-condiciones-de-uso-mantenimiento-y-asistencia-modulos
+
+
 
 ## INSTALLING
 
